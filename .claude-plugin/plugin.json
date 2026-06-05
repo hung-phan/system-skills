@@ -1,0 +1,40 @@
+{
+  "name": "system-skills",
+  "description": "Comprehensive system design & software engineering skills library — architecture patterns, data systems, communication, reliability, code design, security, performance, and interview templates.",
+  "version": "0.1.0",
+  "author": {
+    "name": "hung-phan"
+  },
+  "license": "MIT",
+  "category": "development",
+  "keywords": [
+    "skills",
+    "system-design",
+    "software-architecture",
+    "distributed-systems",
+    "scalability",
+    "reliability",
+    "microservices",
+    "monolith",
+    "event-driven",
+    "cqrs",
+    "event-sourcing",
+    "ddia",
+    "kafka",
+    "consensus",
+    "cap",
+    "consistency",
+    "caching",
+    "load-balancing",
+    "rate-limiting",
+    "observability",
+    "sre",
+    "clean-code",
+    "refactoring",
+    "design-patterns",
+    "interview"
+  ],
+  "skills": [
+    "./skills/system-review"
+  ]
+}

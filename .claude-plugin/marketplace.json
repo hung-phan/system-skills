@@ -1,0 +1,18 @@
+{
+  "name": "system-skills",
+  "owner": {
+    "name": "hung-phan"
+  },
+  "metadata": {
+    "description": "Comprehensive system design & software engineering skills — architecture patterns, data systems, communication, reliability, code design, security, performance, interview templates.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "system-skills",
+      "source": "./",
+      "description": "System design and software engineering skill library covering architecture patterns, distributed data, messaging, reliability, code quality, security, performance, and interview-style designs.",
+      "category": "development"
+    }
+  ]
+}
