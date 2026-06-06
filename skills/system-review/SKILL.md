@@ -26,8 +26,6 @@ When unsure between concept and review, default to concept — easier to escalat
 
 ## Where to look
 
-Three sources, all peers — pick whatever fits the question, mix freely:
-
 - **The wiki** — `<base>/references/` (base directory is announced on invocation; use absolute paths). Three tiers:
   - **Manifest (on demand)** — run `python scripts/extract-manifest.py [keyword ...]` from the skill root. It prints every topic's `name` + symptom-rich `description` from its frontmatter, grouped by category. Multiple keywords are AND by default; pass `--any` for OR. Use this to discover candidates without loading full pages.
   - **Category index** at `references/<category>/INDEX.md` — decision trees, rules of thumb, and `See Also` cross-links. Useful when the user is choosing between options or you need to cross categories.
@@ -41,26 +39,19 @@ Three sources, all peers — pick whatever fits the question, mix freely:
 2. If the user is choosing between options, or you need cross-category context, read the relevant category `INDEX.md` for its decision trees and `See Also` links.
 3. Read the candidate topic's `SKILL.md` in full before citing it. Don't cite from the manifest description alone.
 
-## Cite what you used
+## Claims and citations
 
-Every load-bearing claim gets a citation, inline:
+A claim is *load-bearing* if the user might act on it. The workflow:
 
-- Wiki → `(wiki: communication/kafka-patterns §"Producer")`
-- Web → markdown link to the primary source.
-- Working knowledge → tag as `(consensus)`, `(heuristic)`, or `(opinion)`.
+1. **Identify what's load-bearing.** Specific numbers (defaults, thresholds, version cutoffs, CVE IDs). "X is deprecated" / "default in version N" / "GA in v3.6." Named techniques you might be conflating. For "Review my X," read X first.
+2. **Verify before stating with confidence.** Use the source that fits — wiki for patterns, web for version- or time-sensitive facts.
+3. **Cite inline** — every load-bearing claim:
+   - Wiki → `(wiki: communication/kafka-patterns)`, or append `§"<heading>"` to point at a specific section
+   - Web → markdown link to the primary source
+   - Working knowledge → `(consensus)`, `(heuristic)`, or `(opinion)`
+4. **Hedge what you can't verify** — "I think this is the default; didn't verify." Don't fake confidence. Never invent a URL.
 
-Never invent a URL. If you can't cite, hedge ("I think this is the default; didn't verify"). End non-trivial answers with a `Sources` list so the user can verify.
-
-## Verify load-bearing claims
-
-A claim is *load-bearing* if the user might act on it. Verify before stating with confidence:
-
-- Specific numbers (defaults, thresholds, version cutoffs, CVE IDs).
-- "X is deprecated" / "default in version N" / "GA in v3.6."
-- Named techniques you might be conflating.
-- "Review my X" — read X first, then pull pitfalls from the wiki and the web.
-
-If you can't verify, hedge explicitly. Don't fake confidence.
+End non-trivial answers with a `Sources` list so the user can verify.
 
 ## Reviewing artifacts
 
