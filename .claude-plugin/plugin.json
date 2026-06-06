@@ -1,7 +1,7 @@
 {
   "name": "system-skills",
   "description": "Comprehensive system design & software engineering skills library — architecture patterns, data systems, communication, reliability, code design, security, performance, and interview templates.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": {
     "name": "hung-phan"
   },
