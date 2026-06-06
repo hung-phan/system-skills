@@ -35,8 +35,6 @@ Three sources, all peers — pick whatever fits the question, mix freely:
 - **The web** — current examples, version- or time-sensitive claims (defaults, deprecations, CVEs, pricing, recent releases), and anything outside the wiki's scope. Prefer primary sources (vendor docs, KIPs/RFCs, papers, changelogs) when available, but a good blog post or talk is fine if it's the best source.
 - **Working knowledge** — concepts and "X vs Y" comparisons. Not for specific numbers or version claims unless verified.
 
-Adapt to the problem.
-
 ### How to navigate the wiki
 
 1. Run `python scripts/extract-manifest.py [keyword ...]` — keywords are optional (omit them to dump the full manifest). Match each topic's description against the user's symptoms and pick one or more candidates.
