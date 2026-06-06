@@ -339,3 +339,5 @@ LWT does 4 round trips (prepare, propose, commit, replay). It's roughly 4× slow
 - `../consistency-models/` — linearizability, causal, eventual; the formal model behind R+W>N
 - `../../architecture-patterns/cqrs/` — wide-column for the read-side projections of CQRS systems
 - `../../architecture-patterns/event-sourcing/` — wide-column as the event store substrate
+- `../data-skew/` — Cassandra hot-partition mitigations (bucket-suffix PK, write-sharding); the canonical home for these patterns
+- `../bloom-filter/` — Cassandra's per-SSTable Bloom (`bloom_filter_fp_chance`) and how it shapes read amplification

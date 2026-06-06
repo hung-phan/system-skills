@@ -378,3 +378,4 @@ A single ZSET key is a single Redis main-thread operation. During a tournament f
 - `../../data-systems/key-value/` — Redis ZSET internals (skiplists, ZADD/ZRANGEBYSCORE).
 - `../../data-systems/partitioning/` — geo-/segment-sharding when one ZSET no longer fits.
 - `../../performance/hot-path-optimization/` — when a single hot bucket pegs one Redis shard.
+- `../../data-systems/data-skew/` — celebrity-score skew is point-skew; salting and isolated-replication map to ZSET sharding directly.

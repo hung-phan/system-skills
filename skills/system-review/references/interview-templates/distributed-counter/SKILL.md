@@ -387,3 +387,5 @@ This is the dominant pattern at YouTube view counts (per Google's published desc
 - `../../data-systems/consistency-models/` — what "converges" means and how to communicate it to PMs.
 - `../../data-systems/crdts/` — deeper treatment of state-based vs operation-based CRDTs.
 - `../../data-systems/partitioning/` — general sharding strategies; counters are a special case where random shard beats hash.
+- `../../data-systems/bloom-filter/` — set-membership cousin of HyperLogLog; the right tool when the question is "have we seen X?" rather than "how many distinct X?"
+- `../../data-systems/data-skew/` — celebrity-counter hot-shard mitigation; salting and randomized-shard counters as a special case

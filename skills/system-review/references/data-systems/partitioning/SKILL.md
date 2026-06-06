@@ -458,6 +458,7 @@ A dedicated routing tier between clients and shards: **Vitess (vtgate)**, **Twem
 - ../distributed-transactions/ — 2PC, Saga, and why cross-shard txns hurt
 - ../secondary-indexes/ — deeper dive on local vs global indexes
 - ../caching/ — hot-key mitigation usually starts with a cache
+- ../data-skew/ — what to do when partitioning produced a hot key anyway: salting, AQE, isolate-and-replicate
 - ../load-balancing/ — routing layer / smart proxies / shuffle sharding
 - ../../reliability/blast-radius/ — partitioning as an isolation mechanism (cell-based architecture, shuffle sharding)
 - ../../reliability/tail-latency/ — scatter-gather amplification, hedged requests

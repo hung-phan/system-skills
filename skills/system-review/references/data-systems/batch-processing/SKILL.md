@@ -158,7 +158,7 @@ The shuffle is the most expensive operation in a batch job. Understanding it is 
 | Partitioner (hash vs range) | How keys are distributed | Hash is fine 95% of the time. Range partitioning matters for `orderBy`, top-N, or downstream joins on a sorted key. |
 | AQE (Adaptive Query Execution) | Coalesces small partitions, splits skewed ones at runtime | Turn it on (`spark.sql.adaptive.enabled=true`). Spark 3+ default. |
 
-**Skew — the silent killer.** If 1 key has 100M rows and the other 999,999 keys have 100 rows each, one reducer does 99% of the work. Symptoms: 999 tasks finish in 30 seconds, 1 task runs for 2 hours; the Spark UI shows one fat green bar.
+**Skew — the silent killer.** If 1 key has 100M rows and the other 999,999 keys have 100 rows each, one reducer does 99% of the work. Symptoms: 999 tasks finish in 30 seconds, 1 task runs for 2 hours; the Spark UI shows one fat green bar. The full treatment — detection, salting, AQE skew join, secondary sort, isolate-and-replicate, storage-level mitigations — lives in [`../data-skew/`](../data-skew/). Below: the three Spark patterns you reach for first.
 
 Mitigations:
 
@@ -437,4 +437,6 @@ Key things this template gets right:
 - `../stream-processing/` — when latency matters more than exactness; Flink, Kafka Streams, watermarks
 - `../cdc/` — getting changes out of OLTP databases into the batch layer
 - `../consistency-models/` — why "atomic partition swap" is the consistency story for batch
+- `../data-skew/` — the canonical treatment of skew detection, salting, AQE, secondary sort
+- `../bloom-filter/` — Spark runtime bloom join filter; reduce-side join optimization with Bloom from the small side
 - `../../communication/idempotency/` — the broader pattern; batch is one application of it

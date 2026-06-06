@@ -402,3 +402,5 @@ DDIA ch. 5 (Replication) and ch. 9 (Consistency and Consensus) cover the trade-o
 - `../url-shortener/` — covers snowflake-style ID generation in more depth.
 - `../rate-limiter/` — protect the write API and the celebrity-cache read path from abuse.
 - `../../data-systems/key-value/` — Redis Cluster sharding, hot key mitigation, capped lists with `LTRIM`.
+- `../../data-systems/bloom-filter/` — celebrity-user Bloom on the hot path so non-celebrity writes skip the special branch entirely
+- `../../data-systems/data-skew/` — celebrity fanout is point-skew; salting / isolated-replication patterns apply directly

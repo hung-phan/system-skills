@@ -420,3 +420,4 @@ Sample sizing math: a B-tree leaf page is 8 KB. With 16-byte keys + 8-byte point
 - `../replication/` — read replicas amplify the cost of bad indexes; build them right at the primary.
 - `../../performance/caching/` — when even the right index is too slow, cache in front (Redis, CDN); cache invalidation interacts with index updates.
 - `../oltp-vs-olap/` — the framing decision that picks B-tree vs. column store before you tune indexes.
+- `../bloom-filter/` — the Bloom filter that lives *inside* an LSM index, decides whether a SSTable read is even worth attempting

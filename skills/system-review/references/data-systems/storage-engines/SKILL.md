@@ -501,3 +501,4 @@ For a 1KB row, sequentially-loaded workload, on a modern NVMe SSD:
 - [../replication/](../replication/) — engine choice constrains replication options (statement vs row-based, physical vs logical)
 - [../partitioning/](../partitioning/) — when one engine instance can't keep up
 - [../../reliability/capacity-planning/](../../reliability/capacity-planning/) — sizing buffer pool / cache from working-set estimates
+- [../bloom-filter/](../bloom-filter/) — per-SSTable Bloom in RocksDB / Cassandra / HBase: the structure that makes LSM reads cheap on misses

@@ -419,3 +419,4 @@ def on_reconnect(viewer_id: str, room_id: str, last_msg_id: str | None) -> list[
 - [../../reliability/load-shedding/](../../reliability/load-shedding/) — graceful degradation at capacity
 - [../../communication/backpressure/](../../communication/backpressure/) — bounded queues, drop policy, slow consumers
 - [../../data-systems/key-value/](../../data-systems/key-value/) — SETNX, token bucket, dedupe TTL
+- [../../data-systems/bloom-filter/](../../data-systems/bloom-filter/) — banned-user / per-room ban-set Bloom that replaces a per-message DB call

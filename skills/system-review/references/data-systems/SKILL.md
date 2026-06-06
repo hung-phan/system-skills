@@ -46,6 +46,13 @@ Pick storage, replication, partitioning, and consistency. Most production incide
 | [CRDTs](crdts/) | Conflict-free replicated data types. State and op-based. Where eventual ≠ destruction. |
 | [Schema Evolution](schema-evolution/) | Backward / forward / full compatibility. Avro / Protobuf rules. Online migrations. |
 
+### Probabilistic & skew-aware techniques
+
+| Skill | Description |
+|-------|-------------|
+| [Bloom Filter](bloom-filter/) | Bloom, counting Bloom, cuckoo, xor filters. Probabilistic set membership; LSM read path; reduce-side joins; cache-miss filtering. |
+| [Data Skew](data-skew/) | Salting, secondary sort, broadcast joins, AQE. When 1 task runs for 2 hours and 999 finish in 30s. |
+
 ### Workload patterns
 
 | Skill | Description |

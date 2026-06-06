@@ -408,3 +408,5 @@ Cap everything: window grace, state TTL, key TTL, side-output for outliers.
 - `../../communication/idempotency/` — idempotent sink design, the missing half of exactly-once
 - `../../communication/backpressure/` — flow control patterns at the system level
 - `../../performance/tracing/` — tracing events across a streaming pipeline
+- `../data-skew/` — long-running operator state under skew (RocksDB growth, watermark stalls, sliding-window cleanup)
+- `../bloom-filter/` — sliding-window dedup with counting / rotated Bloom filters; safer than holding 30 days of IDs in RAM

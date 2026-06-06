@@ -399,3 +399,4 @@ Cliff Click's lectures (especially "A Crash Course in Modern Hardware") are the 
 - `../caching/` — when the right answer is "don't compute it again"
 - `../../reliability/load-shedding/` — when the right answer is "don't accept the request"
 - `../../reliability/observability/` — RED/USE methods, histogram-based SLOs, HdrHistogram
+- `../../data-systems/data-skew/` — distributed-processing specialization of "one hot path swamps the cluster"

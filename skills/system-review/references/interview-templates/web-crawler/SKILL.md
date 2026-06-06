@@ -420,5 +420,6 @@ Push the recrawl event into the frontier with a `not_before` timestamp; the fron
 - [../../data-systems/wide-column/](../../data-systems/wide-column/) — wide-column model for URL metadata
 - [../../data-systems/wide-column/](../../data-systems/wide-column/) — row-key design and reversed-host locality
 - [../../performance/caching/](../../performance/caching/) — sizing, false-positive math, counting variants
+- [../../data-systems/bloom-filter/](../../data-systems/bloom-filter/) — canonical treatment of the URL-seen Bloom + RocksDB pattern used here; sizing math, variants, FP-rate decay
 - [../../data-systems/partitioning/](../../data-systems/partitioning/) — host → worker assignment under churn
 - [../../communication/backpressure/](../../communication/backpressure/) — bounded queues between fetcher and extractor

@@ -456,3 +456,4 @@ Same user, multiple devices = each device has its own identity key, treated as a
 - `../../communication/websockets/` — WebSocket protocol, framing, scaling
 - `../../security/encryption-in-transit/` — Signal protocol implementation notes
 - `../../reliability/graceful-degradation/` — what happens when the message store is slow
+- `../../data-systems/bloom-filter/` — message-dedup Bloom (`(sender_id, client_msg_id)` 24h window) used here as the LWT-avoidance pattern
