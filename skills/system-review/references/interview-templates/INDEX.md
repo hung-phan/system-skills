@@ -129,11 +129,11 @@ Every worked design follows the same structure:
 
 ## See Also
 
-- `architecture-patterns/SKILL.md` — to pick the shape of the system
-- `data-systems/SKILL.md` — to pick storage
-- `communication/SKILL.md` — to wire it
-- `reliability/SKILL.md` — to keep it alive
-- `performance/SKILL.md` — to make it fast
+- `architecture-patterns/INDEX.md` — to pick the shape of the system
+- `data-systems/INDEX.md` — to pick storage
+- `communication/INDEX.md` — to wire it
+- `reliability/INDEX.md` — to keep it alive
+- `performance/INDEX.md` — to make it fast
 
 ## References
 

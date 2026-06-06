@@ -554,5 +554,5 @@ Interviewers (at least at Amazon, Google, Meta, and Stripe) typically score on a
 - `../../reliability/circuit-breaker/` — depth for the failure-modes step.
 - `../../reliability/retries-backoff/` — depth for the failure-modes step.
 - `../../reliability/slo-sli-sla/` — what to volunteer when discussing reliability.
-- `../../data-systems/SKILL.md` — decision tree for step 4 (storage selection).
+- `../../data-systems/INDEX.md` — decision tree for step 4 (storage selection).
 - `../../communication/rest/`, `../../communication/grpc/` — depth for step 5.

@@ -412,4 +412,4 @@ Primary sources:
 
 - `../refactoring-catalog/` — concrete mechanics for extracting, inlining, and splitting once you've decided to act.
 - `../code-smells/` — the catalog (Speculative Generality, Shotgun Surgery, Long Parameter List, Divergent Change) that operationalizes these principles.
-- `../../communication/SKILL.md` — public APIs are the YAGNI exception; design them carefully because they're hard to undo.
+- `../../communication/INDEX.md` — public APIs are the YAGNI exception; design them carefully because they're hard to undo.

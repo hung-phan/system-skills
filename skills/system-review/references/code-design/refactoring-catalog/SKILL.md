@@ -680,5 +680,5 @@ If tests take longer than ~10 seconds to run, you cannot afford this cadence —
 - `../code-smells/` — the symptoms that trigger each refactoring in this catalog
 - `../clean-code-principles/` — naming, function size, and the readability rules these moves enforce
 - `../design-patterns-gof/` — Strategy, State, Template Method as common targets of Replace Type Code / Replace Conditional
-- `../../communication/SKILL.md` — Command-Query Separation and Whole Value at the API surface
+- `../../communication/INDEX.md` — Command-Query Separation and Whole Value at the API surface
 - `../ddd/` — Replace Primitive with Object grows naturally into Value Objects and Aggregates

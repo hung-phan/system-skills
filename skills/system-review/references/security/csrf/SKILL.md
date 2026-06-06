@@ -407,4 +407,4 @@ This works because:
 - `../authn/` — cookie attributes (`HttpOnly`, `Secure`, `__Host-`), session fixation, idle/absolute timeouts.
 - `../authn/` — bearer tokens vs cookies, JWT-in-cookie patterns, refresh token rotation.
 - `../oauth-oidc/` — OAuth state parameter is CSRF defense for the redirect flow (RFC 6749 §10.12).
-- `../../communication/SKILL.md` — designing safe HTTP semantics: GET-is-safe, idempotency keys, command/query separation.
+- `../../communication/INDEX.md` — designing safe HTTP semantics: GET-is-safe, idempotency keys, command/query separation.

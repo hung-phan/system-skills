@@ -64,8 +64,8 @@ If none of those apply, microservices add cost (network, ops, observability, deb
 
 ## See Also
 
-- `data-systems/SKILL.md` — once you've shaped the system, pick storage
-- `communication/SKILL.md` — sync vs async, REST vs gRPC, queues
-- `reliability/SKILL.md` — patterns to keep distributed systems alive
+- `data-systems/INDEX.md` — once you've shaped the system, pick storage
+- `communication/INDEX.md` — sync vs async, REST vs gRPC, queues
+- `reliability/INDEX.md` — patterns to keep distributed systems alive
 - `code-design/ddd/` — bounded contexts ground the service split
 - `interview-templates/framework/` — applying these to a real design problem

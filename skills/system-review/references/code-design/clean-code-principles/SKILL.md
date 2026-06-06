@@ -519,5 +519,5 @@ The stepdown rule is the class-level analogue of single-level-of-abstraction ins
 - `../code-smells/` — Fowler's catalog of smells (long method, large class, feature envy, primitive obsession) and which Clean Code rule each maps to.
 - `../refactoring-catalog/` — the mechanical refactorings (Extract Method, Rename, Inline, Replace Conditional with Polymorphism) you apply when a smell is found.
 - `../ddd/` — ubiquitous language (the team-wide discipline that makes "intention-revealing names" stick across a codebase).
-- `../../communication/SKILL.md` — the interface-level analogues: don't return null at API boundaries, design errors as part of the contract.
+- `../../communication/INDEX.md` — the interface-level analogues: don't return null at API boundaries, design errors as part of the contract.
 - `../code-review/` — how to *review for* the smells this skill names.

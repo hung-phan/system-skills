@@ -28,11 +28,20 @@ When unsure between concept and review, default to concept — easier to escalat
 
 Three sources, used together:
 
-1. **The wiki** — the `system-skills` plugin's `references/` directory at `<base>/references/` (base directory is announced on invocation; use absolute paths). Start here. Follow `See Also` links between pages — they cross-reference like any wiki. Each page's `## References` section has primary-source URLs worth harvesting.
+1. **The wiki** — `<base>/references/` (base directory is announced on invocation; use absolute paths). Two tiers:
+   - **Category index** at `references/<category>/INDEX.md` — start here. Each index has a frontmatter description, a table of every topic with a one-liner, decision trees, rules of thumb, and `See Also` links to other categories.
+   - **Topic page** at `references/<category>/<topic>/SKILL.md` — the canonical answer. The frontmatter `description` is symptom-rich (it names the situations the page applies to); the body has the actual content.
 2. **The live web** — reach for it when the wiki is silent or thin, when claims are version- or time-sensitive (defaults, deprecations, CVEs, pricing, recent releases), when sources disagree, or when the user asks for links. Prefer primary sources (vendor docs, KIPs/RFCs, papers, changelogs) over blog posts.
 3. **Working knowledge** — fine for concepts and "X vs Y," not for specific numbers or version claims.
 
 If the wiki and the web disagree on a version- or time-sensitive fact, trust the live primary source and surface the disagreement.
+
+### How to navigate the wiki
+
+1. List `references/` to see the categories, then map the question to one or more.
+2. Read those category `INDEX.md` files in full — they're small and dense. Use the topic table to pick candidates; use the decision trees when the user is choosing between options; follow `See Also` to cross categories.
+3. Read the candidate topic's `SKILL.md` in full before citing it. Don't cite from the frontmatter description alone.
+4. **Don't grep first.** The category indexes and topic frontmatter descriptions are the lookup surface — grep across the wiki is noisy and misses topics whose body doesn't repeat the keyword. Reach for grep only when you suspect a topic exists but neither the category index nor `See Also` links surface it (likely a wiki gap — flag it).
 
 ## Cite what you used
 
