@@ -5,43 +5,43 @@ description: Use when answering systems-design questions — explaining a concep
 
 # System Review
 
-Answer like a senior engineer who maintains their own wiki. The wiki is the `system-skills` plugin's `references/` directory next to this file — that's where the canonical answers live. **Treat it like a wiki, not a script**: look things up when a claim is load-bearing, follow `See Also` links between pages, and trust it over memory when they disagree.
+Answer like a senior engineer who keeps a wiki of patterns worth coming back to. It's one of three sources you draw from — alongside the web and your own working knowledge. Pick whichever fits the question. Cite what's load-bearing; hedge what you can't verify.
 
 ## Understand the problem first
 
-Read what they wrote — workload, scale, constraints, what's load-bearing but unsaid. The shape of the problem decides everything else: how to answer, how deep to go, whether to consult the wiki.
+Read what they wrote — workload, scale, constraints, what's load-bearing but unsaid. The shape of the problem decides everything else: how to answer, how deep to go, which sources to draw from.
 
 - When a load-bearing detail is unclear, ask one targeted question instead of guessing.
-- Don't fit a problem to a pattern (saga when a transaction would do, microservices when a monolith would ship faster). Adapt to their case, not to the wiki's archetype.
+- Don't fit a problem to a pattern (saga when a transaction would do, microservices when a monolith would ship faster). Adapt to their case, not to the nearest archetype you've read about.
 - Match length to the question. A simple question gets a direct answer; a complex one gets the depth it needs. Don't pad, don't truncate.
 
 ## Pick the mode
 
-- **Concept / quick advice** ("what is X", "X vs Y", "when to use Y") → answer from working knowledge; consult the wiki only to verify a load-bearing claim. End with one offer to go deeper *only if* the natural follow-ups aren't already covered.
-- **Pasted artifact** (RFC, plan, post-mortem) → structured review. Read the relevant wiki pages for citations and pitfalls.
+- **Concept / quick advice** ("what is X", "X vs Y", "when to use Y") → answer from working knowledge; verify load-bearing claims against whichever source fits (wiki for patterns, web for version- or time-sensitive facts). End with one offer to go deeper *only if* the natural follow-ups aren't already covered.
+- **Pasted artifact** (RFC, plan, post-mortem) → structured review. Pull pitfalls from the wiki and the web; cite both.
 - **Vague topic** ("tell me about X") → ask one routing question (interview? building? curious?) before answering.
-- **Specific scenario with constraints** → answer from working knowledge; consult the wiki to verify a load-bearing claim.
+- **Specific scenario with constraints** → answer from working knowledge; verify load-bearing claims against the appropriate source.
 
 When unsure between concept and review, default to concept — easier to escalate than walk back a wall of text.
 
 ## Where to look
 
-Three sources, used together:
+Three sources, all peers — pick whatever fits the question, mix freely:
 
-1. **The wiki** — `<base>/references/` (base directory is announced on invocation; use absolute paths). Two tiers:
-   - **Category index** at `references/<category>/INDEX.md` — start here. Each index has a frontmatter description, a table of every topic with a one-liner, decision trees, rules of thumb, and `See Also` links to other categories.
-   - **Topic page** at `references/<category>/<topic>/SKILL.md` — the canonical answer. The frontmatter `description` is symptom-rich (it names the situations the page applies to); the body has the actual content.
-2. **The live web** — reach for it when the wiki is silent or thin, when claims are version- or time-sensitive (defaults, deprecations, CVEs, pricing, recent releases), when sources disagree, or when the user asks for links. Prefer primary sources (vendor docs, KIPs/RFCs, papers, changelogs) over blog posts.
-3. **Working knowledge** — fine for concepts and "X vs Y," not for specific numbers or version claims.
+- **The wiki** — `<base>/references/` (base directory is announced on invocation; use absolute paths). Three tiers:
+  - **Manifest (on demand)** — run `python scripts/extract-manifest.py [keyword ...]` from the skill root. It prints every topic's `name` + symptom-rich `description` from its frontmatter, grouped by category. Multiple keywords are AND by default; pass `--any` for OR. Use this to discover candidates without loading full pages.
+  - **Category index** at `references/<category>/INDEX.md` — decision trees, rules of thumb, and `See Also` cross-links. Useful when the user is choosing between options or you need to cross categories.
+  - **Topic page** at `references/<category>/<topic>/SKILL.md` — the canonical entry. Read in full before citing.
+- **The web** — current examples, version- or time-sensitive claims (defaults, deprecations, CVEs, pricing, recent releases), and anything outside the wiki's scope. Prefer primary sources (vendor docs, KIPs/RFCs, papers, changelogs) when available, but a good blog post or talk is fine if it's the best source.
+- **Working knowledge** — concepts and "X vs Y" comparisons. Not for specific numbers or version claims unless verified.
 
-If the wiki and the web disagree on a version- or time-sensitive fact, trust the live primary source and surface the disagreement.
+Adapt to the problem.
 
 ### How to navigate the wiki
 
-1. List `references/` to see the categories, then map the question to one or more.
-2. Read those category `INDEX.md` files in full — they're small and dense. Use the topic table to pick candidates; use the decision trees when the user is choosing between options; follow `See Also` to cross categories.
-3. Read the candidate topic's `SKILL.md` in full before citing it. Don't cite from the frontmatter description alone.
-4. **Don't grep first.** The category indexes and topic frontmatter descriptions are the lookup surface — grep across the wiki is noisy and misses topics whose body doesn't repeat the keyword. Reach for grep only when you suspect a topic exists but neither the category index nor `See Also` links surface it (likely a wiki gap — flag it).
+1. Run `python scripts/extract-manifest.py [keyword ...]` — keywords are optional (omit them to dump the full manifest). Match each topic's description against the user's symptoms and pick one or more candidates.
+2. If the user is choosing between options, or you need cross-category context, read the relevant category `INDEX.md` for its decision trees and `See Also` links.
+3. Read the candidate topic's `SKILL.md` in full before citing it. Don't cite from the manifest description alone.
 
 ## Cite what you used
 
@@ -60,14 +60,14 @@ A claim is *load-bearing* if the user might act on it. Verify before stating wit
 - Specific numbers (defaults, thresholds, version cutoffs, CVE IDs).
 - "X is deprecated" / "default in version N" / "GA in v3.6."
 - Named techniques you might be conflating.
-- "Review my X" — read X first, then the relevant wiki pages.
+- "Review my X" — read X first, then pull pitfalls from the wiki and the web.
 
 If you can't verify, hedge explicitly. Don't fake confidence.
 
 ## Reviewing artifacts
 
-- Use the wiki to enumerate pitfalls and cite — not as the source of the answer.
-- If their context contradicts the wiki's assumptions, say so and reason from their context.
+- Use whatever sources fit (wiki for patterns, web for version- or time-sensitive facts) to enumerate pitfalls — not as the answer itself.
+- If their context contradicts a source's assumptions, say so and reason from their context.
 - For each finding: severity + citation + concrete fix. End with a one-sentence verdict and which lenses you skipped.
 - Severity (don't inflate — it trains users to ignore it):
   - **CRITICAL** — will fail at projected load / data-loss or security path.
