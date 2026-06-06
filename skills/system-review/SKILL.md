@@ -1,11 +1,11 @@
 ---
 name: system-review
-description: Answer systems-design questions — explain a concept, advise on a choice, gap-check an approach, or review a pasted artifact (RFC, diagram, capacity plan, post-mortem, interview answer) — using a bundled wiki of canonical patterns.
+description: Use when answering systems-design questions — explaining a concept, advising on a choice, gap-checking an approach, or reviewing a pasted artifact (RFC, capacity plan, post-mortem, interview answer). Backed by a bundled wiki of canonical patterns across data systems, communication, reliability, performance, security, and architecture.
 ---
 
 # System Review
 
-Answer like a senior engineer who maintains their own wiki. The wiki is `references/` next to this file — that's where the canonical answers live. **Treat it like a wiki, not a script**: look things up when a claim is load-bearing, follow `See Also` links between pages, and trust it over memory when they disagree.
+Answer like a senior engineer who maintains their own wiki. The wiki is the `system-skills` plugin's `references/` directory next to this file — that's where the canonical answers live. **Treat it like a wiki, not a script**: look things up when a claim is load-bearing, follow `See Also` links between pages, and trust it over memory when they disagree.
 
 ## Understand the problem first
 
@@ -24,63 +24,46 @@ Read what they wrote — workload, scale, constraints, what's load-bearing but u
 
 When unsure between concept and review, default to concept — easier to escalate than walk back a wall of text.
 
-## Locating wiki pages
+## Where to look
 
-The skill's base directory is announced on every invocation ("Base directory for this skill: …"). Wiki pages live at `<base>/references/`. **Always use absolute paths** — relative paths from CWD won't work.
+Three sources, used together:
 
-**Favor `grep` for search** — fast, available everywhere, predictable output.
+1. **The wiki** — the `system-skills` plugin's `references/` directory at `<base>/references/` (base directory is announced on invocation; use absolute paths). Start here. Follow `See Also` links between pages — they cross-reference like any wiki. Each page's `## References` section has primary-source URLs worth harvesting.
+2. **The live web** — reach for it when the wiki is silent or thin, when claims are version- or time-sensitive (defaults, deprecations, CVEs, pricing, recent releases), when sources disagree, or when the user asks for links. Prefer primary sources (vendor docs, KIPs/RFCs, papers, changelogs) over blog posts.
+3. **Working knowledge** — fine for concepts and "X vs Y," not for specific numbers or version claims.
 
-```bash
-REFS=<base>/references
-grep -rli "<topic>" "$REFS"           # find candidate pages by content (case-insensitive, names only)
-grep -rn "kafka.*partition" "$REFS"   # narrower phrase, with line numbers
-ls "$REFS"                            # see top-level domains
-```
+If the wiki and the web disagree on a version- or time-sensitive fact, trust the live primary source and surface the disagreement.
 
-- Read with the `Read` tool on the absolute path; skim `## Common Pitfalls`, `## Decision Table`, and `## Trade-offs` headings first.
-- Follow `See Also` links — pages cross-reference like any wiki.
-- Don't `cat`/`awk` the file via Bash — use `Read`.
+## Cite what you used
 
-## Validate load-bearing claims
+Every load-bearing claim gets a citation, inline:
 
-A *load-bearing claim* is one the user might act on. Before stating it confidently:
+- Wiki → `(wiki: communication/kafka-patterns §"Producer")`
+- Web → markdown link to the primary source.
+- Working knowledge → tag as `(consensus)`, `(heuristic)`, or `(opinion)`.
 
-- Specific numbers (defaults, thresholds, version cutoffs, CVE IDs) — verify against the wiki or current docs. Don't quote from memory.
-- Named techniques — open the wiki page; make sure you haven't conflated two patterns.
-- "X is deprecated" / "default in version N" — verify or hedge.
-- "Review my X" — read X first, then the relevant wiki pages, then write.
+Never invent a URL. If you can't cite, hedge ("I think this is the default; didn't verify"). End non-trivial answers with a `Sources` list so the user can verify.
 
-The bar isn't "verify everything" — it's "verify what the user might act on."
+## Verify load-bearing claims
 
-## Be honest about where the answer is coming from
+A claim is *load-bearing* if the user might act on it. Verify before stating with confidence:
 
-The reader can't tell whether you opened the wiki or pulled from training. Make it visible while it matters, not as a footnote.
+- Specific numbers (defaults, thresholds, version cutoffs, CVE IDs).
+- "X is deprecated" / "default in version N" / "GA in v3.6."
+- Named techniques you might be conflating.
+- "Review my X" — read X first, then the relevant wiki pages.
 
-- Read a wiki page → say so, reference the file.
-- Answer from working knowledge → distinguish in-line:
-  - **Consensus** — broad agreement; state plainly.
-  - **Heuristic** — popular but contested; mark as a rule of thumb.
-  - **Opinion** — your take or one camp's; name the disagreement.
-- If a claim is load-bearing and you couldn't verify it, hedge ("I think this is the default; didn't check"). Don't fake confidence.
+If you can't verify, hedge explicitly. Don't fake confidence.
 
 ## Reviewing artifacts
 
-- Use the wiki to verify a claim or enumerate pitfalls — not as the source of the answer.
+- Use the wiki to enumerate pitfalls and cite — not as the source of the answer.
 - If their context contradicts the wiki's assumptions, say so and reason from their context.
 - For each finding: severity + citation + concrete fix. End with a one-sentence verdict and which lenses you skipped.
-- Severity:
+- Severity (don't inflate — it trains users to ignore it):
   - **CRITICAL** — will fail at projected load / data-loss or security path.
   - **HIGH** — likely incident; hard to recover from.
   - **MEDIUM** — pain under scale or partial failure.
   - **LOW** — minor; quality-of-life.
   - **NIT** — preference / style.
-  Inflation trains users to ignore severity.
-- A finding without a citation is either not a finding or a wiki gap — flag it.
-
-## Be critical of every source
-
-- The wiki can be stale or wrong for this problem. A confident blog post is usually worse.
-- Weigh evidence, not source: concrete examples, benchmarks with conditions, version-specific docs, incident write-ups beat assertions.
-- Cross-check precise things (defaults, versions, APIs, CVEs) against current docs.
-- When sources disagree, show the disagreement. Don't collapse it.
-- Cite what you used so the user can verify.
+- A finding with no citation is either not a finding or a wiki gap — flag it.
