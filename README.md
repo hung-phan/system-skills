@@ -18,8 +18,8 @@ Register as a plugin marketplace, then install:
 ### Local install (for development)
 
 ```bash
-claude plugin validate .claude-plugin/plugin.json
-claude plugin add /path/to/system-skills
+claude plugin marketplace add ./
+claude plugin install system-skills@system-skills
 ```
 
 ## How to Use
